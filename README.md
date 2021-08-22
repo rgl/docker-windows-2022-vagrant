@@ -1,12 +1,12 @@
 # About
 
-This is a Docker on Windows Server 2019 (1809) Vagrant environment for playing with Windows containers.
+This is a Docker on Windows Server 2022 (21H2) Vagrant environment for playing with Windows containers.
 
-For Windows Server 2022 (21H2) see the [rgl/docker-windows-2022-vagrant](https://github.com/rgl/docker-windows-2022-vagrant) repository.
+For Windows Server 2019 (1809) see the [rgl/docker-windows-2019-vagrant](https://github.com/rgl/docker-windows-2019-vagrant) repository.
 
 # Usage
 
-Install the [Base Windows Server 2019 Box](https://github.com/rgl/windows-vagrant).
+Install the [Base Windows Server 2022 Box](https://github.com/rgl/windows-vagrant).
 
 Install the required plugins:
 
@@ -30,17 +30,16 @@ The Docker Engine API endpoint is available at http://10.0.0.3:2375.
 
 The next table describes whether a `docker stop --time 600 <container>` will graceful shutdown a container that is running a [console](https://github.com/rgl/graceful-terminating-console-application-windows/), [gui](https://github.com/rgl/graceful-terminating-gui-application-windows/), or [service](https://github.com/rgl/graceful-terminating-windows-service/) app.
 
-| base image                                | app     | behavior                                                                                     |
-| ----------------------------------------- | ------- | -------------------------------------------------------------------------------------------- |
-| mcr.microsoft.com/windows/nanoserver:1809 | console | receives the `CTRL_SHUTDOWN_EVENT` notification but is killed after about 5 seconds          |
-| mcr.microsoft.com/windows/servercore:1809 | console | receives the `CTRL_SHUTDOWN_EVENT` notification but is killed after about 5 seconds          |
-| mcr.microsoft.com/windows:1809            | console | receives the `CTRL_SHUTDOWN_EVENT` notification but is killed after about 5 seconds          |
-| mcr.microsoft.com/windows/nanoserver:1809 | service | receives the `SERVICE_CONTROL_PRESHUTDOWN` notification but is killed after about 15 seconds |
-| mcr.microsoft.com/windows/servercore:1809 | service | receives the `SERVICE_CONTROL_PRESHUTDOWN` notification but is killed after about 15 seconds |
-| mcr.microsoft.com/windows:1809            | service | receives the `SERVICE_CONTROL_PRESHUTDOWN` notification but is killed after about 20 seconds |
-| mcr.microsoft.com/windows/nanoserver:1809 | gui     | fails to run because there is no GUI support libraries in the base image                     |
-| mcr.microsoft.com/windows/servercore:1809 | gui     | does not receive the shutdown messages `WM_QUERYENDSESSION` or `WM_CLOSE`                    |
-| mcr.microsoft.com/windows:1809            | gui     | does not receive the shutdown messages `WM_QUERYENDSESSION` or `WM_CLOSE`                    |
+| base image                                    | app     | behavior                                                                                     |
+| --------------------------------------------- | ------- | -------------------------------------------------------------------------------------------- |
+| mcr.microsoft.com/windows/nanoserver:ltsc2022 | console | receives the `CTRL_SHUTDOWN_EVENT` notification but is killed after about 5 seconds          |
+| mcr.microsoft.com/windows/servercore:ltsc2022 | console | receives the `CTRL_SHUTDOWN_EVENT` notification but is killed after about 5 seconds          |
+| mcr.microsoft.com/windows/nanoserver:ltsc2022 | service | receives the `SERVICE_CONTROL_PRESHUTDOWN` notification but is killed after about 15 seconds |
+| mcr.microsoft.com/windows/servercore:ltsc2022 | service | receives the `SERVICE_CONTROL_PRESHUTDOWN` notification but is killed after about 15 seconds |
+| mcr.microsoft.com/windows/nanoserver:ltsc2022 | gui     | fails to run because there is no GUI support libraries in the base image                     |
+| mcr.microsoft.com/windows/servercore:ltsc2022 | gui     | does not receive the shutdown messages `WM_QUERYENDSESSION` or `WM_CLOSE`                    |
+
+**NB** the `windows` container image was not tested because its not yet available. see [microsoft/Windows-Containers#150](https://github.com/microsoft/Windows-Containers/issues/150).
 
 **NG** setting `WaitToKillServiceTimeout` (e.g. `Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Control -Name WaitToKillServiceTimeout -Value '450000'`) does not have any effect on extending the kill service timeout.
 
@@ -59,20 +58,19 @@ vagrant execute --sudo -c '/vagrant/ps.ps1 examples/graceful-terminating-gui-app
 This environment builds and uses the following images:
 
 ```
-REPOSITORY                                 TAG                     IMAGE ID       CREATED             SIZE
-busybox-info                               latest                  336a4278b638   59 minutes ago      258MB
-go-info                                    latest                  3be0b24aab1a   59 minutes ago      259MB
-csharp-info                                latest                  fe1915293866   59 minutes ago      329MB
-powershell-info                            latest                  5d26f5f44c57   About an hour ago   517MB
-batch-info                                 latest                  abacf01de2cf   About an hour ago   257MB
-busybox                                    latest                  232db8dcfdb7   About an hour ago   258MB
-golang                                     1.17.0                  51ee2ad1638c   About an hour ago   742MB
-mcr.microsoft.com/powershell               7.1.4-nanoserver-1809   b0d64fe83110   3 days ago          513MB
-mcr.microsoft.com/dotnet/sdk               6.0-nanoserver-1809     27b657c80c01   11 days ago         967MB
-mcr.microsoft.com/dotnet/runtime           6.0-nanoserver-1809     35e027807a25   11 days ago         329MB
-mcr.microsoft.com/windows                  1809                    53dae50cf85b   2 weeks ago         15GB
-mcr.microsoft.com/windows/servercore       1809                    ae32d0871644   2 weeks ago         5.7GB
-mcr.microsoft.com/windows/nanoserver       1809                    8572826a0d1a   2 weeks ago         257MB
+REPOSITORY                            TAG                        IMAGE ID      CREATED         SIZE
+busybox-info                          latest                     2b6f23681cbd  12 minutes ago  298MB
+go-info                               latest                     9731bbf5dcaf  12 minutes ago  299MB
+csharp-info                           latest                     b6190094da1b  13 minutes ago  369MB
+powershell-info                       latest                     3eb28cf1f249  14 minutes ago  557MB
+batch-info                            latest                     0ed3e32959e3  15 minutes ago  297MB
+busybox                               latest                     c384b9dd8439  15 minutes ago  298MB
+golang                                1.17.0                     574ff5defa51  15 minutes ago  783MB
+mcr.microsoft.com/powershell          7.1.4-nanoserver-ltsc2022  03eafa191a22  3 days ago      553MB
+mcr.microsoft.com/dotnet/sdk          6.0-nanoserver-ltsc2022    ba0220de3c63  3 days ago      1.01GB
+mcr.microsoft.com/dotnet/runtime      6.0-nanoserver-ltsc2022    323199b4ca0c  3 days ago      369MB
+mcr.microsoft.com/windows/servercore  ltsc2022                   801c33f5de3a  12 days ago     5.1GB
+mcr.microsoft.com/windows/nanoserver  ltsc2022                   9126f7df26a0  12 days ago     297MB
 ```
 
 # Troubleshoot
