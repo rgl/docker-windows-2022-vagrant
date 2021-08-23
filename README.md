@@ -34,12 +34,13 @@ The next table describes whether a `docker stop --time 600 <container>` will gra
 | --------------------------------------------- | ------- | -------------------------------------------------------------------------------------------- |
 | mcr.microsoft.com/windows/nanoserver:ltsc2022 | console | receives the `CTRL_SHUTDOWN_EVENT` notification but is killed after about 5 seconds          |
 | mcr.microsoft.com/windows/servercore:ltsc2022 | console | receives the `CTRL_SHUTDOWN_EVENT` notification but is killed after about 5 seconds          |
+| mcr.microsoft.com/windows/server:ltsc2022     | console | receives the `CTRL_SHUTDOWN_EVENT` notification but is killed after about 5 seconds          |
 | mcr.microsoft.com/windows/nanoserver:ltsc2022 | service | receives the `SERVICE_CONTROL_PRESHUTDOWN` notification but is killed after about 15 seconds |
 | mcr.microsoft.com/windows/servercore:ltsc2022 | service | receives the `SERVICE_CONTROL_PRESHUTDOWN` notification but is killed after about 15 seconds |
+| mcr.microsoft.com/windows/server:ltsc2022     | service | receives the `SERVICE_CONTROL_PRESHUTDOWN` notification but is killed after about 15 seconds |
 | mcr.microsoft.com/windows/nanoserver:ltsc2022 | gui     | fails to run because there is no GUI support libraries in the base image                     |
 | mcr.microsoft.com/windows/servercore:ltsc2022 | gui     | does not receive the shutdown messages `WM_QUERYENDSESSION` or `WM_CLOSE`                    |
-
-**NB** the `windows` container image was not tested because its not yet available. see [microsoft/Windows-Containers#150](https://github.com/microsoft/Windows-Containers/issues/150).
+| mcr.microsoft.com/windows/server:ltsc2022     | gui     | does not receive the shutdown messages `WM_QUERYENDSESSION` or `WM_CLOSE`                    |
 
 **NG** setting `WaitToKillServiceTimeout` (e.g. `Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Control -Name WaitToKillServiceTimeout -Value '450000'`) does not have any effect on extending the kill service timeout.
 
@@ -59,18 +60,19 @@ This environment builds and uses the following images:
 
 ```
 REPOSITORY                            TAG                        IMAGE ID      CREATED         SIZE
-busybox-info                          latest                     2b6f23681cbd  12 minutes ago  298MB
-go-info                               latest                     9731bbf5dcaf  12 minutes ago  299MB
-csharp-info                           latest                     b6190094da1b  13 minutes ago  369MB
-powershell-info                       latest                     3eb28cf1f249  14 minutes ago  557MB
-batch-info                            latest                     0ed3e32959e3  15 minutes ago  297MB
-busybox                               latest                     c384b9dd8439  15 minutes ago  298MB
-golang                                1.17.0                     574ff5defa51  15 minutes ago  783MB
-mcr.microsoft.com/powershell          7.1.4-nanoserver-ltsc2022  03eafa191a22  3 days ago      553MB
-mcr.microsoft.com/dotnet/sdk          6.0-nanoserver-ltsc2022    ba0220de3c63  3 days ago      1.01GB
-mcr.microsoft.com/dotnet/runtime      6.0-nanoserver-ltsc2022    323199b4ca0c  3 days ago      369MB
-mcr.microsoft.com/windows/servercore  ltsc2022                   801c33f5de3a  12 days ago     5.1GB
-mcr.microsoft.com/windows/nanoserver  ltsc2022                   9126f7df26a0  12 days ago     297MB
+busybox-info                          latest                     9e1d2543886c  37 minutes ago  298MB
+go-info                               latest                     ab2a7261c83d  37 minutes ago  299MB
+csharp-info                           latest                     50407fe512c8  37 minutes ago  369MB
+powershell-info                       latest                     3cc16e447387  39 minutes ago  557MB
+batch-info                            latest                     e8a65d0195a3  40 minutes ago  297MB
+busybox                               latest                     556cf106dfe2  40 minutes ago  298MB
+golang                                1.17.0                     db9e2e805138  40 minutes ago  783MB
+mcr.microsoft.com/powershell          7.1.4-nanoserver-ltsc2022  61ded2895024  4 days ago      553MB
+mcr.microsoft.com/dotnet/sdk          6.0-nanoserver-ltsc2022    ba0220de3c63  5 days ago      1.01GB
+mcr.microsoft.com/dotnet/runtime      6.0-nanoserver-ltsc2022    323199b4ca0c  5 days ago      369MB
+mcr.microsoft.com/windows/servercore  ltsc2022                   801c33f5de3a  2 weeks ago     5.1GB
+mcr.microsoft.com/windows/server      ltsc2022                   d86596fba4fc  2 weeks ago     12.3GB
+mcr.microsoft.com/windows/nanoserver  ltsc2022                   9126f7df26a0  2 weeks ago     297MB
 ```
 
 # Troubleshoot
