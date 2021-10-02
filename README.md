@@ -60,19 +60,19 @@ This environment builds and uses the following images:
 
 ```
 REPOSITORY                            TAG                        IMAGE ID      CREATED         SIZE
-busybox-info                          latest                     9e1d2543886c  37 minutes ago  298MB
-go-info                               latest                     ab2a7261c83d  37 minutes ago  299MB
-csharp-info                           latest                     50407fe512c8  37 minutes ago  369MB
-powershell-info                       latest                     3cc16e447387  39 minutes ago  557MB
-batch-info                            latest                     e8a65d0195a3  40 minutes ago  297MB
-busybox                               latest                     556cf106dfe2  40 minutes ago  298MB
-golang                                1.17.0                     db9e2e805138  40 minutes ago  783MB
-mcr.microsoft.com/powershell          7.1.4-nanoserver-ltsc2022  61ded2895024  4 days ago      553MB
-mcr.microsoft.com/dotnet/sdk          6.0-nanoserver-ltsc2022    ba0220de3c63  5 days ago      1.01GB
-mcr.microsoft.com/dotnet/runtime      6.0-nanoserver-ltsc2022    323199b4ca0c  5 days ago      369MB
-mcr.microsoft.com/windows/servercore  ltsc2022                   801c33f5de3a  2 weeks ago     5.1GB
-mcr.microsoft.com/windows/server      ltsc2022                   d86596fba4fc  2 weeks ago     12.3GB
-mcr.microsoft.com/windows/nanoserver  ltsc2022                   9126f7df26a0  2 weeks ago     297MB
+busybox-info                          latest                     f5885abaf2ae  41 minutes ago  296MB
+go-info                               latest                     f4d8e2e01a8f  41 minutes ago  297MB
+csharp-info                           latest                     9cb136eac1f6  41 minutes ago  367MB
+powershell-info                       latest                     217eb792bde2  42 minutes ago  554MB
+batch-info                            latest                     b9a1be8dfb6f  43 minutes ago  295MB
+busybox                               latest                     ebfab5c90fb4  43 minutes ago  296MB
+golang                                1.17.1                     742136504135  43 minutes ago  780MB
+mcr.microsoft.com/powershell          7.1.4-nanoserver-ltsc2022  afe6859e4453  4 days ago      551MB
+mcr.microsoft.com/dotnet/sdk          6.0-nanoserver-ltsc2022    0fbe76696b79  2 weeks ago     1GB
+mcr.microsoft.com/dotnet/runtime      6.0-nanoserver-ltsc2022    11541e4cd9f3  2 weeks ago     367MB
+mcr.microsoft.com/windows/server      ltsc2022                   541918eecd04  2 weeks ago     11.2GB
+mcr.microsoft.com/windows/servercore  ltsc2022                   a3aeeffc33bf  2 weeks ago     4.8GB
+mcr.microsoft.com/windows/nanoserver  ltsc2022                   7de11e21b34e  2 weeks ago     295MB
 ```
 
 # Troubleshoot
