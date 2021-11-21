@@ -1,13 +1,13 @@
 # see https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/configure-docker-daemon
 # see https://docs.docker.com/engine/installation/linux/docker-ce/binaries/#install-server-and-client-binaries-on-windows
-# see https://github.com/moby/moby/releases/tag/v20.10.9
-# see https://github.com/rgl/docker-ce-windows-binaries-vagrant/releases/tag/v20.10.9
+# see https://github.com/moby/moby/releases/tag/v20.10.11
+# see https://github.com/rgl/docker-ce-windows-binaries-vagrant/releases/tag/v20.10.11
 
 # download install the docker binaries.
-$archiveVersion = '20.10.9'
+$archiveVersion = '20.10.11'
 $archiveName = "docker-$archiveVersion.zip"
 $archiveUrl = "https://github.com/rgl/docker-ce-windows-binaries-vagrant/releases/download/v$archiveVersion/$archiveName"
-$archiveHash = '360ca42101d453022eea17747ae0328709c7512e71553b497b88b7242b9b0ee4'
+$archiveHash = 'a7b9505eb50cf92cf44a35eb13568c3352ed53b17d0891807605ffdce61871a7'
 $archivePath = "$env:TEMP\$archiveName"
 Write-Host "Installing docker $archiveVersion..."
 (New-Object System.Net.WebClient).DownloadFile($archiveUrl, $archivePath)
