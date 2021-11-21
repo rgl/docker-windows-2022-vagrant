@@ -17,7 +17,7 @@ vagrant plugin install vagrant-reload
 Then launch the environment:
 
 ```bash
-vagrant up --provider=virtualbox # or --provider=libvirt
+vagrant up --no-destroy-on-error --provider=libvirt # or --provider=virtualbox
 ```
 
 At the end of the provision the [examples](examples/) are run.
