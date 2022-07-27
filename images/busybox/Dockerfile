@@ -5,8 +5,8 @@ ARG WINDOWS_NANOSERVER_IMAGE
 FROM ${POWERSHELL_IMAGE} AS builder
 SHELL ["pwsh.exe", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 RUN cd $env:TMP; `
-    $url = 'https://frippery.org/files/busybox/busybox-w64-FRP-4487-gd239d2d52.exe'; `
-    $sha256 = '23d1bf00d07cf090abf1360eea2233195aeb5a99fcd35bf3ad1e833c76c00c6b'; `
+    $url = 'https://frippery.org/files/busybox/busybox-w64-FRP-4716-g31467ddfc.exe'; `
+    $sha256 = '137a346a40c0a0facdfc0f10b47ea52e3d4413db2da1e15d1d2093e8ef7f3acb'; `
     Write-Host ('Downloading {0}...' -f $url); `
     Invoke-WebRequest -Uri $url -OutFile busybox.exe; `
     Write-Host ('Verifying sha256 ({0})...' -f $sha256); `
