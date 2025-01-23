@@ -3,7 +3,7 @@ $tag = 'busybox'
 time {
     docker build `
         --build-arg "WINDOWS_NANOSERVER_IMAGE=$((Get-WindowsContainers).nanoserver)" `
-        --build-arg "POWERSHELL_IMAGE=$((Get-WindowsContainers).powershellNanoserver)" `
+        --build-arg "POWERSHELL_IMAGE=$((Get-WindowsContainers).powershellWindowsServerCore)" `
         -t $tag .
 }
 docker image ls $tag

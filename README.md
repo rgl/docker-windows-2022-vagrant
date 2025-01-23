@@ -8,12 +8,6 @@ For Windows Server 2019 (1809) see the [rgl/docker-windows-2019-vagrant](https:/
 
 Install the [Base Windows Server 2022 Box](https://github.com/rgl/windows-vagrant).
 
-Install the required plugins:
-
-```bash
-vagrant plugin install vagrant-reload
-```
-
 Then launch the environment:
 
 ```bash
@@ -59,20 +53,20 @@ vagrant execute --sudo -c '/vagrant/ps.ps1 examples/graceful-terminating-gui-app
 This environment builds and uses the following images:
 
 ```
-REPOSITORY                            TAG                        IMAGE ID      CREATED         SIZE
-busybox-info                          latest                     9bbddfa0522e  36 minutes ago  297MB
-go-info                               latest                     a5be262e07d7  36 minutes ago  299MB
-csharp-info                           latest                     2d5adfcf8d61  36 minutes ago  370MB
-powershell-info                       latest                     0088db36b123  38 minutes ago  572MB
-batch-info                            latest                     057d1b05b205  38 minutes ago  297MB
-busybox                               latest                     e0c1d1ccdcf5  38 minutes ago  297MB
-golang                                1.19.1                     9f026cc5c05b  39 minutes ago  826MB
-mcr.microsoft.com/powershell          7.2-nanoserver-ltsc2022    73ffd9d1df31  8 days ago      568MB
-mcr.microsoft.com/dotnet/sdk          6.0-nanoserver-ltsc2022    ed71d1a35ad3  4 weeks ago     1.03GB
-mcr.microsoft.com/dotnet/runtime      6.0-nanoserver-ltsc2022    8388dca6a93b  4 weeks ago     370MB
-mcr.microsoft.com/windows/server      ltsc2022                   8bd553871b63  4 weeks ago     11.9GB
-mcr.microsoft.com/windows/servercore  ltsc2022                   5798b78d003a  4 weeks ago     5.08GB
-mcr.microsoft.com/windows/nanoserver  ltsc2022                   9ce3ae2c2ce8  4 weeks ago     297MB
+REPOSITORY                            TAG                              IMAGE ID      CREATED         SIZE
+busybox-info                          latest                           6560bd5e0195  26 minutes ago  294MB
+go-info                               latest                           a6811b530260  26 minutes ago  295MB
+csharp-info                           latest                           5bafc497b060  27 minutes ago  368MB
+powershell-info                       latest                           122de1e0f002  30 minutes ago  5.44GB
+batch-info                            latest                           bf65ff51c534  31 minutes ago  293MB
+busybox                               latest                           a79f85817544  31 minutes ago  293MB
+golang                                1.23.5                           6772f8637074  31 minutes ago  652MB
+mcr.microsoft.com/powershell          7.4-windowsservercore-ltsc2022   bfe3f67c1ad2  2 months ago    5.42GB
+mcr.microsoft.com/dotnet/sdk          8.0-nanoserver-ltsc2022          2cc9a44e800c  9 days ago      1.26GB
+mcr.microsoft.com/dotnet/runtime      8.0-nanoserver-ltsc2022          784740758bbe  9 days ago      368MB
+mcr.microsoft.com/windows/server      ltsc2022                         16f97fcf4440  11 days ago     10.5GB
+mcr.microsoft.com/windows/servercore  ltsc2022                         7f1b8b9185ba  11 days ago     5.16GB
+mcr.microsoft.com/windows/nanoserver  ltsc2022                         c6f91e0896e4  11 days ago     293MB
 ```
 
 # Troubleshoot

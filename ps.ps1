@@ -59,10 +59,10 @@ function Get-WindowsContainers {
         } else {
             "mcr.microsoft.com/windows`:$windowsVersionTag"
         }
-        powershellNanoserver = "mcr.microsoft.com/powershell:7.2-nanoserver-$windowsVersionTag"
-        golangNanoserver = "golang:1.19.1-nanoserver-$windowsVersionTag"
-        dotnetSdkNanoserver = "mcr.microsoft.com/dotnet/sdk:6.0-nanoserver-$windowsVersionTag"
-        dotnetRuntimeNanoserver = "mcr.microsoft.com/dotnet/runtime:6.0-nanoserver-$windowsVersionTag"
+        powershellWindowsServerCore = "mcr.microsoft.com/powershell:7.4-windowsservercore-$windowsVersionTag"
+        golangNanoserver = "golang:1.23.5-nanoserver-$windowsVersionTag"
+        dotnetSdkNanoserver = "mcr.microsoft.com/dotnet/sdk:8.0-nanoserver-$windowsVersionTag"
+        dotnetRuntimeNanoserver = "mcr.microsoft.com/dotnet/runtime:8.0-nanoserver-$windowsVersionTag"
     }
 }
 

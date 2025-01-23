@@ -1,5 +1,5 @@
 @(
-    (Get-WindowsContainers).powershellNanoserver
+    (Get-WindowsContainers).powershellWindowsServerCore
     (Get-WindowsContainers).servercore
     (Get-WindowsContainers).server
 ) | Where-Object {$_} | ForEach-Object {
@@ -18,11 +18,11 @@
     Remove-Item -ErrorAction SilentlyContinue -Force "$dataPath\graceful-terminating-windows-service.log"
 
     Write-Output 'building the container...'
-    Write-Output "using BUILDER_IMAGE: $((Get-WindowsContainers).powershellNanoserver)"
+    Write-Output "using BUILDER_IMAGE: $((Get-WindowsContainers).powershellWindowsServerCore)"
     Write-Output "using BASE_IMAGE: $_"
     time {
         docker build `
-            --build-arg "BUILDER_IMAGE=$((Get-WindowsContainers).powershellNanoserver)" `
+            --build-arg "BUILDER_IMAGE=$((Get-WindowsContainers).powershellWindowsServerCore)" `
             --build-arg "BASE_IMAGE=$_" `
             --file Dockerfile.tmp `
             -t graceful-terminating-windows-service `

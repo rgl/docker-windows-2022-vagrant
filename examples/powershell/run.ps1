@@ -3,7 +3,7 @@ cd info
 Write-Output 'building the image...'
 time {
     docker build `
-        --build-arg "POWERSHELL_IMAGE=$((Get-WindowsContainers).powershellNanoserver)" `
+        --build-arg "POWERSHELL_IMAGE=$((Get-WindowsContainers).powershellWindowsServerCore)" `
         -t powershell-info .
 }
 docker image ls powershell-info

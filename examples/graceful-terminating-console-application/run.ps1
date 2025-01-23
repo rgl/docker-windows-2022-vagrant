@@ -12,7 +12,7 @@
     Write-Output 'building the container...'
     time {
         docker build `
-            --build-arg "BUILDER_IMAGE=$((Get-WindowsContainers).powershellNanoserver)" `
+            --build-arg "BUILDER_IMAGE=$((Get-WindowsContainers).powershellWindowsServerCore)" `
             --build-arg "BASE_IMAGE=$_" `
             -t graceful-terminating-console-application .
     }
